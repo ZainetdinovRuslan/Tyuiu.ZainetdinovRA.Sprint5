@@ -9,7 +9,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Lib
         {
             string path = Path.GetTempFileName();
 
-            double result = (Math.Pow(x, 3) / 2 * Math.Pow(x + 5, 2));
+            double result = (Math.Pow(x, 3) / (2 * Math.Pow(x + 5, 2)));
             result = Math.Round(result, 3);
 
             File.WriteAllText(path, result.ToString());

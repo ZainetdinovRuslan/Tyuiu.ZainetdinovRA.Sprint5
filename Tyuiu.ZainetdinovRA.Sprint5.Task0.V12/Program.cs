@@ -24,7 +24,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task0.V12
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-            int x = 2;
+            int x = 3;
             string result = ds.SaveToFileTextData(x);
 
             Console.WriteLine("***************************************************************************");

@@ -7,8 +7,6 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            int x = 2;
-
             string path = @"C:\\Users\\rosip\\source\\repos\\Tyuiu.ZainetdinovRA.Sprint5\\Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Lib\\bin\\Debug\\OutPutFileTask0.txt";
 
             FileInfo fileInfo = new FileInfo(path);
