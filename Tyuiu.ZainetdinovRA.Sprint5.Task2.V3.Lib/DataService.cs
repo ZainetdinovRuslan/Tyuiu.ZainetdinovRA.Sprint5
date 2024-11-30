@@ -7,7 +7,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task2.V3.Lib
     {
         public string SaveToFileTextData(int[,] matrix)
         {
-            string path = "OutPutFileTask2.csv";
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask2.csv");
             int rows = matrix.GetLength(0);
             int columns = matrix.GetLength(1);
 
