@@ -26,21 +26,17 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task3.V28
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* РЕЗУЛЬТАТ                                                               *");
-            Console.WriteLine("***************************************************************************");
-
             int x = 3;
-            string result = ds.SaveToFileTextData(x);
+            string resultPath = ds.SaveToFileTextData(x);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ                                                               *");
             Console.WriteLine("***************************************************************************");
 
-            string[] fileContents = File.ReadAllLines(result);
-            foreach (string line in fileContents)
+            using (BinaryReader reader = new BinaryReader(File.Open(resultPath, FileMode.Open)))
             {
-                Console.WriteLine(line);
+                double result = reader.ReadDouble();
+                Console.WriteLine($"Результат из бинарного файла {result}");
             }
         }
     }
