@@ -36,8 +36,9 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task3.V28
             using (BinaryReader reader = new BinaryReader(File.Open(resultPath, FileMode.Open)))
             {
                 double result = reader.ReadDouble();
-                Console.WriteLine($"Результат из бинарного файла {result}");
+                Console.WriteLine($"Результат из бинарного файла: {result}");
             }
         }
     }
 }
+    
