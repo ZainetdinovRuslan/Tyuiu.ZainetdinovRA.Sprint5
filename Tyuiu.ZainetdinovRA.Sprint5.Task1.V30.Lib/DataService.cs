@@ -15,7 +15,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task1.V30.Lib;
         {
             double fx;
 
-            if (Math.Abs(2 - 2 * x) < 1e-9)
+            if (Math.Abs(2 - 2 * x) == 0)
             {
                 fx = 0;
             }
@@ -26,8 +26,8 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task1.V30.Lib;
 
             fx = Math.Round(fx, 2);
 
-            // Append only the value to the results
-            results.AppendLine(fx.ToString("F2").Replace('.', ','));
+
+            results.AppendLine(fx.ToString().Replace('.', ','));
         }
 
         File.WriteAllText(filePath, results.ToString());
