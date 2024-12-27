@@ -9,6 +9,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task4.V27
         {
             Console.OutputEncoding = Encoding.UTF8;
             DataService ds = new DataService();
+
             Console.Title = "Спринт #5 | Выполнил: Zainetdinov R. A. | ИИПБ-24-2";
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #5                                                               *");
@@ -33,6 +34,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task4.V27
             Console.WriteLine("* РЕЗУЛЬТАТ                                                               *");
             Console.WriteLine("***************************************************************************");
             string filePath = @"C:\DataSprint5\InPutDataFileTask4V0.txt";
+
 
             try
             {
