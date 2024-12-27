@@ -8,6 +8,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
+            DataService ds = new DataService();
             Console.Title = "Спринт #5 | Выполнил: Zainetdinov R. A. | ИИПБ-24-2";
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #5                                                               *");
@@ -25,10 +26,8 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-
-            DataService ds = new DataService();
-            //string tempPath = Path.GetTempPath();
-            string directoryPath = @"C:\DataSprint5\";
+            
+            string filePath = @"C:\DataSprint5\InPutDataFileTask5V27.txt";
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ                                                               *");
@@ -36,13 +35,20 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27
 
             try
             {
-                //Console.WriteLine($"Temporary Path: {tempPath}");
-                double average = ds.LoadFromDataFile(directoryPath);
+                double average = ds.LoadFromDataFile(filePath);
                 Console.WriteLine($"Среднее значение всех целых чисел, которые делятся на 5: {average}");
             }
-            catch (InvalidOperationException)
+            catch (FileNotFoundException ex)
             {
-                Console.WriteLine("Значения в файле не корректны.");
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Неожиданная ошибка: {ex.Message}");
             }
         }
     }

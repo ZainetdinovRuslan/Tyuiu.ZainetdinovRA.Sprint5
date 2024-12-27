@@ -7,74 +7,25 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            string filePath;
-            if (File.Exists(path))
+            if (!File.Exists(path))
             {
-                filePath = path; 
-            }
-            else
-            {
-                filePath = Path.Combine(path, "InPutDataFileTask5V27.txt"); 
+                throw new FileNotFoundException($"Файл не найден: {path}");
             }
 
-            if (!File.Exists(filePath))
-            {
-                throw new FileNotFoundException($"Файл не найден в {filePath}");
-            }
+            string[] lines = File.ReadAllLines(path);
+            var divisibleByFive = lines
+                .Select(line => int.TryParse(line.Trim(), out int number) ? number : (int?)null)
+                .Where(number => number.HasValue && number % 5 == 0)
+                .Select(number => number.Value)
+                .ToList();
 
-            string[] lines = File.ReadAllLines(filePath);
-            List<int> numberDivisibleByFive = new List<int>();
-
-            foreach (string line in lines)
-            {
-                Console.WriteLine($"Обрабатываемая строка: {line}");
-                if (int.TryParse(line.Trim(), out int number))
-                {
-                    Console.WriteLine($"Обработанное число: {number}");
-                    if (number % 5 == 0)
-                    {
-                        Console.WriteLine($"Число делимое на 5: {number}");
-                        numberDivisibleByFive.Add(number);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"Failed to parse: {line}");
-                }
-            }
-
-            if (!numberDivisibleByFive.Any())
+            if (!divisibleByFive.Any())
             {
                 throw new InvalidOperationException("Нет чисел делимых на 5.");
             }
 
-            double average = numberDivisibleByFive.Average();
+            double average = divisibleByFive.Average();
             return Math.Round(average, 3);
-
-            /* string filePath = Path.Combine(path, "InPutDataFileTask5V27.txt");
-            if (!File.Exists(filePath))
-            {
-                throw new FileNotFoundException($"Файл не найден в {filePath}");
-            }
-
-            string[] lines = File.ReadAllLines(filePath);
-            List<int> numberDivisibleByFive = new List<int>();
-
-            foreach (string line in lines)
-            {
-                if (int.TryParse(line.Trim(), out int number) && number % 5 == 0)
-                {
-                    numberDivisibleByFive.Add(number);
-                }
-            }
-
-            if (!numberDivisibleByFive.Any())
-            {
-                throw new InvalidOperationException("Нет чисел делимых на 5.");
-            }
-
-            double average = numberDivisibleByFive.Average();
-            return Math.Round(average, 3); */
         }
     }
 }
