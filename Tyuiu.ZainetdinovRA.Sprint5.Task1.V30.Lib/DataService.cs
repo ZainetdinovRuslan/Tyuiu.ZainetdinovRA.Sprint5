@@ -7,18 +7,15 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task1.V30.Lib;
 {
     public string SaveToFileTextData(int startValue, int stopValue)
     {
-        StringBuilder tableBuilder = new StringBuilder();
-        tableBuilder.AppendLine("x\tf(x)");
-        tableBuilder.AppendLine(new string('-', 20));
-
+        StringBuilder results = new StringBuilder();
         string tempDirectory = Path.GetTempPath();
         string filePath = Path.Combine(tempDirectory, "OutPutFileTask1.txt");
 
-        for (double x = startValue; x <= stopValue; x++)
+        for (double x = startValue; x <= stopValue; x ++)
         {
             double fx;
 
-            if (Math.Abs(2 - 2 * x) == 0) 
+            if (Math.Abs(2 - 2 * x) < 1e-9)
             {
                 fx = 0;
             }
@@ -29,11 +26,13 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task1.V30.Lib;
 
             fx = Math.Round(fx, 2);
 
-            tableBuilder.AppendLine($"{x:F1}\t{fx:F2}");
+            // Append only the value to the results
+            results.AppendLine(fx.ToString("F2").Replace('.', ','));
         }
 
-        File.WriteAllText(filePath, tableBuilder.ToString());
+        File.WriteAllText(filePath, results.ToString());
 
         return filePath;
+
     }
 }
