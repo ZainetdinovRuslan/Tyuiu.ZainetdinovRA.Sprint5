@@ -1,4 +1,6 @@
-﻿using Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Lib;
+﻿using System.IO;
+
+using Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Lib;
 
 namespace Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Test
 {
@@ -6,8 +8,22 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Test
     public sealed class DataServiceTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ValidSaveToFileTextData()
         {
+            string path = @"C:\Users\rosip\source\repos\Tyuiu.ZainetdinovRA.Sprint5\Tyuiu.ZainetdinovRA.Sprint5.Task0.V12.Lib\bin\Debug\OutPutFileTask0.txt";
+
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+            if (fileInfo.Exists)
+            {
+                fileExists = true;
+            }
+            else
+            {
+                fileExists = false;
+            }
+            bool wait = true;
+            Assert.AreEqual(wait, fileExists);
         }
     }
 }
