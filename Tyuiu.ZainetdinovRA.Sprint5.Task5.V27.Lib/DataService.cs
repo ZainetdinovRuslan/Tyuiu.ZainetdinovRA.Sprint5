@@ -26,7 +26,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Lib
 
             if (!numberDivisibleByFive.Any())
             {
-                throw new InvalidOperationException("Не найдено чисел делимых на 5.");
+                throw new InvalidOperationException("No numbers divisible by 5 found.");
             }
 
             double average = numberDivisibleByFive.Average();
