@@ -7,14 +7,14 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task6.V26.Lib
     {
         public int LoadFromDataFile(string path)
         {
-            string filePath = Path.Combine(path, "InPutDataFileTask6V26.txt");
+            //string filePath = Path.Combine(path, "InPutDataFileTask6V26.txt");
 
-            if (!File.Exists(filePath))
+            if (!File.Exists(path))
             {
-                throw new FileNotFoundException($"Файл не найден в {filePath}");
+                throw new FileNotFoundException($"Файл не найден в {path}");
             }
-
-            string content = File.ReadAllText(filePath);
+            string content = File.ReadAllText(path).Trim();
+            //string content = File.ReadAllText(filePath);
             int count = content.Count(c => c == '?');
             return count;
         }
