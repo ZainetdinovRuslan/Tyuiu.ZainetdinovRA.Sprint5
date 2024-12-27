@@ -6,7 +6,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task3.V28.Lib
     {
         public string SaveToFileTextData(int x)
         {
-            double y = Math.Pow(x, 3) / (2 * Math.Pow(x + 5, 2));
+            double y = -0.25 * (Math.Pow(x, 3) -  3 * Math.Pow(x, 2) + 4);
 
             y = Math.Round(y, 3);
 
