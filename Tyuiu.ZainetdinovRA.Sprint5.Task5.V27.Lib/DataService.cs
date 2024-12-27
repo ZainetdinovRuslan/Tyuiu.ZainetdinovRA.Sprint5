@@ -7,7 +7,30 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            throw new NotImplementedException();
+            string filePath = Path.Combine(path, "InPutDataFileTask5V27.txt");
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException($"File not found at {filePath}");
+            }
+
+            string[] lines = File.ReadAllLines(filePath);
+            List<int> numberDivisibleByFive = new List<int>();
+
+            foreach (string line in lines)
+            {
+                if (int.TryParse(line.Trim(), out int number) && number % 5 == 0)
+                {
+                    numberDivisibleByFive.Add(number);
+                }
+            }
+
+            if (!numberDivisibleByFive.Any())
+            {
+                throw new InvalidOperationException("Не найдено чисел делимых на 5.");
+            }
+
+            double average = numberDivisibleByFive.Average();
+            return Math.Round(average, 3);
         }
     }
 }

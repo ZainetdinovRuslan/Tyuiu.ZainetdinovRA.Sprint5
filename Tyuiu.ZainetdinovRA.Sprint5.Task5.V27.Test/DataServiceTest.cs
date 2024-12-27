@@ -1,4 +1,7 @@
-﻿namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Test
+﻿using System.IO;
+using Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Lib;
+
+namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Test
 {
     [TestClass]
     public sealed class DataServiceTest
