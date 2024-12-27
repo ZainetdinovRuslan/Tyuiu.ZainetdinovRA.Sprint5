@@ -12,9 +12,10 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27.Lib
                 throw new FileNotFoundException($"Файл не найден: {path}");
             }
 
-            string[] lines = File.ReadAllLines(path);
-            var divisibleByFive = lines
-                .Select(line => int.TryParse(line.Trim(), out int number) ? number : (int?)null)
+            string[] numbers = File.ReadAllText(path).Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
+            var divisibleByFive = numbers
+                .Select(number => int.TryParse(number.Trim(), out int result) ? result : (int?)null)
                 .Where(number => number.HasValue && number.Value % 5 == 0)
                 .Select(number => number.Value)
                 .ToList();
