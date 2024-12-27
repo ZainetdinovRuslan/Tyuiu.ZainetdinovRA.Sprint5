@@ -27,7 +27,8 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27
             Console.WriteLine("***************************************************************************");
 
             DataService ds = new DataService();
-            string tempPath = Path.GetTempPath();
+            //string tempPath = Path.GetTempPath();
+            string filePath = @"C:\DataSprint5\";
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ                                                               *");
@@ -36,7 +37,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task5.V27
             try
             {
                 //Console.WriteLine($"Temporary Path: {tempPath}");
-                double average = ds.LoadFromDataFile(tempPath);
+                double average = ds.LoadFromDataFile(filePath);
                 Console.WriteLine($"Среднее значение всех целых чисел, которые делятся на 5: {average}");
             }
             catch (InvalidOperationException)
