@@ -28,7 +28,7 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task6.V26
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string directoryPath = @"C:\DataSprint5\InPutDataFileTask6V26.txt";
+            string filePath = @"C:\DataSprint5\InPutDataFileTask6V26.txt";
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ                                                               *");
@@ -36,8 +36,8 @@ namespace Tyuiu.ZainetdinovRA.Sprint5.Task6.V26
 
             try
             {
-                int questionMarkCount = ds.LoadFromDataFile(directoryPath);
-                Console.WriteLine($"Количество знаков вопроса в заданной строке: {questionMarkCount}");
+                int questionMarkCount = ds.LoadFromDataFile(filePath);
+                Console.WriteLine($"Количество знаков вопроса: {questionMarkCount}");
             }
             catch (FileNotFoundException ex)
             {
