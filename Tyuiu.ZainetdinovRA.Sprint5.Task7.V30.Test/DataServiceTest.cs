@@ -1,15 +1,12 @@
-﻿using System.IO;
-using Tyuiu.ZainetdinovRA.Sprint5.Task6.V26.Lib;
-
-namespace Tyuiu.ZainetdinovRA.Sprint5.Task6.V26.Test
+﻿namespace Tyuiu.ZainetdinovRA.Sprint5.Task7.V30.Test
 {
     [TestClass]
     public sealed class DataServiceTest
     {
         [TestMethod]
-        public void ValidLoadFromDataFile()
+        public void ValidLoadDataAndSave()
         {
-            string path = @"C:\DataSprint5\InPutDataFileTask6V26.txt";
+            string path = @"C:\DataSprint5\InPutDataFileTask7V30.txt";
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
